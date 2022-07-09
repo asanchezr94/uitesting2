@@ -12,13 +12,25 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 public class Register implements Task {
     private String strFirtsname;
     private String strLastname;
-    public Register(String strFirtsname, String strLastname) {
+    private String strEmail;
+    private String strMonth;
+    private String strDay;
+    private String strAge;
+    private String strPassword;
+
+    public Register(String strFirtsname, String strLastname, String strEmail, String strMonth, String strDay, String strAge, String strPassword) {
         this.strFirtsname = strFirtsname;
         this.strLastname = strLastname;
+        this.strEmail = strEmail;
+        this.strMonth = strMonth;
+        this.strDay = strDay;
+        this.strAge = strAge;
+        this.strPassword = strPassword;
+
     }
 
-    public static Register onThePage(String strFirstname, String strLastname) {
-        return Tasks.instrumented(Register.class,strFirstname,strLastname);
+    public static Register onThePage(String strFirstname, String strLastname, String strEmail, String strMonth, String strDay, String strAge, String strPassword) {
+        return Tasks.instrumented(Register.class,strFirstname,strLastname,strEmail,strMonth,strDay,strAge,strPassword);
     }
 
 
@@ -28,10 +40,10 @@ public class Register implements Task {
         actor.attemptsTo(Click.on(UtestRegister.LOGIN_BUTTON),
             Enter.theValue(strFirtsname).into(UtestRegister.INPUT_DATA),
             Enter.theValue(strLastname).into(UtestRegister.INPUT_USER),
-            Enter.theValue("andreszz203559@email.com").into(UtestRegister.INPUT_EMAIL),
-            SelectFromOptions.byValue("number:3").from(UtestRegister.SELECT_MENU),
-            SelectFromOptions.byValue("number:5").from(UtestRegister.SELECT_DAY),
-            SelectFromOptions.byValue("number:1994").from(UtestRegister.SELECT_AGE),
+            Enter.theValue(strEmail ).into(UtestRegister.INPUT_EMAIL),
+            SelectFromOptions.byValue(strMonth).from(UtestRegister.SELECT_MENU),
+            SelectFromOptions.byValue(strDay).from(UtestRegister.SELECT_DAY),
+            SelectFromOptions.byValue(strAge).from(UtestRegister.SELECT_AGE),
             Click.on(UtestRegister.NEXT_BUTTON),
             Enter.theValue("").into(UtestRegister.INPUT_CITY),
             Click.on(UtestRegister.BACK),
@@ -40,8 +52,8 @@ public class Register implements Task {
             Click.on(UtestRegister.BACK2),
             Click.on(UtestRegister.NEXT2),
             Click.on(UtestRegister.NEXT_LAST),
-            Enter.theValue("QAtesting1088*").into(UtestRegister.INPUT_PASSWORD),
-            Enter.theValue("QAtesting1088*").into(UtestRegister.INPUT_CONFIRMPASS),
+            Enter.theValue(strPassword).into(UtestRegister.INPUT_PASSWORD),
+            Enter.theValue(strPassword).into(UtestRegister.INPUT_CONFIRMPASS),
             Click.on(UtestRegister.ENTER_VERIFI1),
             Click.on(UtestRegister.ENTER_VERIFI2),
             Click.on(UtestRegister.ENTER_VERIFI3),

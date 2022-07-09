@@ -24,7 +24,7 @@ public class ChoucairAcademyStepDefinitions {
 
     @Given("^Go to the utes home page, select the Join Today button to register, and fill in all the details$")
     public void goToTheUtesHomePageSelectTheJoinTodayButtonToRegisterAndFillInAllTheDetails(List<LoginData> loginData) throws Exception {
-        OnStage.theActorCalled("Andres").wasAbleTo(OpenUp.thePage(), Register.onThePage(loginData.get(0).getStrFirstname(),loginData.get(0).getStrLastname()));
+        OnStage.theActorCalled("Andres").wasAbleTo(OpenUp.thePage(), Register.onThePage(loginData.get(0).getStrFirstname(),loginData.get(0).getStrLastname(),loginData.get(0).getStrEmail(),loginData.get(0).getStrMonth(),loginData.get(0).getStrDay(),loginData.get(0).getStrAge(),loginData.get(0).getStrPassword()));
     }
 
 

@@ -23,7 +23,7 @@ public class Search implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Click.on(SearchLoginPage.LOGIN),
                 Click.on(SearchLoginPage.FORGOUT),
-                Enter.theValue("andreszz203559@email.com").into(SearchLoginPage.EMAIL),
+                Enter.theValue("handreszz2103559@email.com").into(SearchLoginPage.EMAIL),
                 Click.on(SearchLoginPage.RESET)
 
         );
